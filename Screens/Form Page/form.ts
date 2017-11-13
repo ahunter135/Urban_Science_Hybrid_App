@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the FormPage page.
@@ -15,8 +16,8 @@ import { ToastController } from 'ionic-angular';
   templateUrl: 'form.html',
 })
 export class FormPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  public form = {};
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +30,7 @@ export class FormPage {
       duration: 3000
     });
     toast.present();
+    this.storage.set('NewForm', JSON.stringify(this.form));
     this.navCtrl.pop();
   }
 
