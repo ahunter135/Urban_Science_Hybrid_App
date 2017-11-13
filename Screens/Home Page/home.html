@@ -13,12 +13,12 @@
       <ion-thumbnail item-start>
         <img src="{{item.photo}}">
       </ion-thumbnail>
-      <h2>{{item.title}}</h2>
+      <h1>{{item.title}}</h1>
       <p>{{item.subtitle}}</p>
       <button ion-button clear item-end>View</button>
     </ion-item>
   </ion-list>
   <ion-fab right bottom>
-    <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="secondary" (click)="addForm()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>
