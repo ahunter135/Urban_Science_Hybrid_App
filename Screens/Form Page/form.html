@@ -7,27 +7,46 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>form</ion-title>
+    <ion-title>Form Submission</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  <form (ngSubmit)="logForm()">
-    <ion-list>
+	<ion-list>
+	 <ion-item>
+		<ion-label stacked>Dealership Name</ion-label>
+		<ion-input type="text" placeholder="Name here" [(ngModel)]="dealName"></ion-input>
+	  </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Username</ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="form.username"></ion-input>
-      </ion-item>
+	  <ion-item>
+		<ion-label stacked>Address</ion-label>
+		<ion-input type="text" placeholder="Address here" [(ngModel)]="dealAddress1"></ion-input>
+	  </ion-item>
+	 <ion-item>
+		<ion-label stacked>Address Cont.</ion-label>
+		<ion-input type="text" placeholder="PO, etc." [(ngModel)]="dealAddress2"></ion-input>
+	  </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="form.password"></ion-input>
-      </ion-item>
+	  <ion-item>
+		<ion-label stacked>City</ion-label>
+		<ion-input type="text" placeholder="City" [(ngModel)]="dealCity"></ion-input>
+	  </ion-item>
+	  
+	   <ion-item>
+		<ion-label stacked>State</ion-label>
+		<ion-input type="text" placeholder="State" [(ngModel)]="dealState"></ion-input>
+	  </ion-item>
 
-    </ion-list>
-    <button ion-button type="submit" block>Add Form</button>
-  </form>
+	  <ion-item>
+		<ion-label stacked>Zip</ion-label>
+		<ion-input type="number" placeholder="Zip Code" [(ngModel)]="dealZip"></ion-input>
+	  </ion-item>
+	 <ion-item>
+		<ion-label stacked>Other?</ion-label>
+		<ion-input type="text" placeholder="Potato" [(ngModel)]="dealOther"></ion-input>
+	  </ion-item>
+	</ion-list>
+
+	<button ion-button block>Submit Form</button>
 </ion-content>
