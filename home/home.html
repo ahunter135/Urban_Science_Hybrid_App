@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar color="secondary">
+        <ion-title middle>
+            <h1>Home</h1>
+        </ion-title>
+    </ion-navbar>
+    <ion-toolbar color="dark">
+        <ion-buttons left>
+            <button ion-button color="white" (click) ="openList()">
+                Menu
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of objects">
+        <ion-thumbnail item-start>
+            <img src="{{item.photo}}"/>
+        </ion-thumbnail>
+            <h1>{{item.title}}</h1>
+                <p>{{item.subtitle}}</p>  
+
+      <button ion-button clear item-right (click) ="showForm(item)">
+        View
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="addForm()">
+      <ion-icon name="add">
+        </ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
