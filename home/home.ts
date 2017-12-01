@@ -4,8 +4,10 @@ import { HTTP } from '@ionic-native/http';
 import { Storage } from '@ionic/storage';
 
 
-import { FormPage } from '../Form Page/form';
-import { ListPage } from '../list/list'
+import { FormPage } from '../form/form';
+import { ListPage } from '../list/list';
+
+
 
 @Component({
     selector: 'page-home',

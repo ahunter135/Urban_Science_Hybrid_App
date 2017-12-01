@@ -34,15 +34,61 @@ export class HomePage {
 
             /*
             *grab from server here
-            */
             let form = {
+                 pmaName: "",
+                  manufacturerBrand: "",
+                  markeyName: "",
+                  franchiseBrand: "",
+                  address: "",
+                  attribute: {
+                    photoTaken: {
+                      lat: "",
+                      long: "",
+                    },
+                    exclusivity: "",
+                    appearance: "",
+                    signage: "",
+                    customerParking: "",
+                    accessibility: "",
+                    location: "",
+                    proxToComp: "",
+                    surroundingNeighbor: ""
+                  },
+                  facility: {
+                    overallSize: "",
+                    meetsImage: "",
+                    buildingType: "",
+                    congestion: "",
+                    newCarDeliveryArea: "",
+                    usedCarsSepBldg: "",
+                    addVehicalStorage: "",
+                    structureSize: "",
+                    offSiteAreas: ""
+                  },
+                  brandSigns: {
+                    pylanPole: "",
+                    monument: ""
+                  },
+                  fixedOps: {
+                    serviceReception: "",
+                    servRecptArea: "",
+                    serviceShopType: "",
+                    servShopStalls: "",
+                    carWash: "",
+                    expressLubeLane: "",
+                    collisionShop: ""
+                  }
+
+            */
+
+            let formTab = {
                 name: "Team 1001",
                 location: "City, State",
                 GPS: 123456,
-                photo: "https://pbs.twimg.com/media/C_k0Tr-UAAAttbv.jpg"
+                photo: "https://cdn1.iconfinder.com/data/icons/transportation-5/24/Car-2-512.png"
             }
 
-            this.forms.push(form);
+            this.forms.push(formTab);
         }
 
         for (var h = 0; h < this.forms.length; h++) {
