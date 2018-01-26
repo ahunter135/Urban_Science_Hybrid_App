@@ -7,5 +7,20 @@
 </ion-header>
 
 <ion-content padding>
-  
+  <form (ngSubmit)="login()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>Username</ion-label>
+        <ion-input type="text" name="username" autocapitalize="off" [(ngModel)]="loginData.username"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" name="password" autocapitalize="off" [(ngModel)]="loginData.password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button ion-button block type="submit">Login</button>
+  </form>
 </ion-content>

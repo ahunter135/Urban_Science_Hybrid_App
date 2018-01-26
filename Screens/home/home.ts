@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { Storage } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
+import { Events } from 'ionic-angular';
 
 
 import { FormPage } from '../form/form';
@@ -19,71 +20,16 @@ export class HomePage {
     public numForms;
     public base64Image;
     public items;
-    constructor(public navCtrl: NavController, public http: HTTP, private storage: Storage, public camera: Camera, public alertCtrl: AlertController) {
+    constructor(public navCtrl: NavController, public http: HTTP, public events: Events, private storage: Storage, public camera: Camera, public alertCtrl: AlertController) {
 
     }
 
     ionViewDidLoad() {
-      this.numForms = 4;
-      this.storage.set('LoggedIn', false);
-      this.storage.get('LoggedIn').then((loggedIn) => {
-        if (loggedIn == false || loggedIn == undefined) {
-          let alertPrompt = this.alertCtrl.create({
-            title: 'Login',
-            inputs: [
-              {
-                name: 'username',
-                placeholder: 'Username'
-              },
-              {
-                name: 'password',
-                placeholder: 'Password',
-                type: 'password'
-              }
-            ],
-            buttons: [
-              {
-                text: 'Cancel',
-                role: 'cancel',
-                handler: data => {
-                  console.log('Cancel clicked');
-                }
-              },
-              {
-                text: 'Login',
-                handler: data => {
-                  let loginData = {
-                    username: data.username,
-                    password: data.password
-                  };
-                  let url = "https://hidden-depths-27519.herokuapp.com/";
-
-                  this.http.post(url + "login", loginData, {})
-                    .then(response => {
-                      if (response.data === "Success") {
-                        this.storage.set('LoggedIn', true);
-                        //getAllForms
-                        this.http.post(url + 'getAllForms', {}, {})
-                        .then(response => {
-                          alert(JSON.stringify(response));
-                        })
-                      }
-                    })
-                    .catch(err => alert(JSON.stringify(err)));
-                }
-              }
-            ]
-          });
-          alertPrompt.present();
-        } else {
-          let url = "https://hidden-depths-27519.herokuapp.com/";
-          this.http.post(url + 'getAllForms', {}, {})
-          .then(response => {
-            alert(JSON.stringify(response));
-          })
-        }
+      let url = "https://hidden-depths-27519.herokuapp.com/";
+      this.http.post(url + 'getAllForms', {}, {})
+      .then(response => {
+        alert(JSON.stringify(response));
       })
-
 /*
         //need to set the number of forms from server
         this.numForms = 5;
