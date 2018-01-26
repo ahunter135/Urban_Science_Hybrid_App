@@ -17,13 +17,15 @@ import { HomePage } from '../home/home';
 })
 export class FormPage {
 
-	dealName = '';
-	dealAddress1 = '';
-	dealAddress2 = '';
-	dealCity = '';
-	dealState = '';
-	dealzip = '';
-	dealOther = '';
+  public form = {
+    dealName: '',
+  	dealAddress1: '',
+  	dealAddress2: '',
+  	dealCity: '',
+  	dealState: '',
+  	dealzip: '',
+  	dealOther: ''
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -33,6 +35,7 @@ export class FormPage {
   }
 
   submit() {
+    //make http call here to /submitForm
     this.navCtrl.pop();
   }
   cancel() {

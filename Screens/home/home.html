@@ -23,16 +23,16 @@
   </ion-list>
 
   <ion-fab right bottom>
-    <button ion-fab color="secondary" (click)="addForm()">
-      <ion-icon name="add">
+    <button ion-fab color="secondary"><ion-icon name="arrow-up"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="secondary" (click)="addForm()">
+        <ion-icon name="add">
         </ion-icon>
-    </button>
-  </ion-fab>
-  <ion-fab right top>
-    <button ion-fab color="secondary" (click)="takePicture()">
-            <ion-icon name="camera">
-            </ion-icon>
+      </button>
+      <button ion-fab color="secondary" (click)="takePicture()">
+          <ion-icon name="camera">
+        </ion-icon>
         </button>
+    </ion-fab-list>
   </ion-fab>
-
 </ion-content>
