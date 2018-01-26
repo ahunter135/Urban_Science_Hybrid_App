@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HTTP } from '@ionic-native/http';
 import { Storage } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 
 
-import { FormPage } from '../form/form';
+import { FormPage } from '../Form Page/form';
 import { ListPage } from '../list/list';
 
 
@@ -17,9 +18,11 @@ export class HomePage {
     public objects = [];
     public forms = [];
     public numForms;
+    public items = [];
+    public base64Image: string;
 
-    constructor(public navCtrl: NavController, public http: HTTP, private storage: Storage) {
-
+    constructor(public navCtrl: NavController, public http: HTTP, public camera: Camera, private storage: Storage) {
+        this.base64Image = "https://placehold.it/150x150";
     }
 
     ionViewDidLoad() {
@@ -112,10 +115,48 @@ export class HomePage {
         this.navCtrl.push(FormPage);
     }
 
+    takePicture() {
+        this.camera.getPicture({
+            quality: 75,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.CAMERA,
+            allowEdit: true,
+            encodingType: this.camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            saveToPhotoAlbum: false
+        }).then(imageData => {
+            this.base64Image = "data:image/jpeg;base64," + imageData;
+        }, error => {
+            console.log("ERROR -> " + JSON.stringify(error));
+        });
+    
+    }
+
 
     showForm(showMe) {
         //showMe should be an ItemsDetailPage
         this.navCtrl.push(showMe);//push the form clicked
 
     }
+
+    initializeNames() {
+        this.items = [];
+        for (var t = 0; t < this.objects.length; t++) {
+            this.items.push(this.objects[t].title);
+        }
+    }
+
+    getItems(ev: any) {
+        this.initializeNames();
+
+        let val = ev.target.value;
+
+        if (val && val.trim() != '') {
+            this.items = this.items.filter((item) => {
+                return (item.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            })
+        }
+    }
+
 }

@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header color="black">
     <ion-navbar>
-      <button ion-button menuToggle>
+      <button ion-button color="secondary" menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
       <ion-title>Home</ion-title>
@@ -28,4 +28,20 @@
         </ion-icon>
     </button>
   </ion-fab>
+
+    <ion-fab right top>
+        <button ion-fab color="secondary" (click)="takePicture()">
+            <ion-icon name="camera">
+            </ion-icon>
+        </button>
+    </ion-fab>
+
+    <ion-searchbar bottom (ionInput)="getItems($event)"> </ion-searchbar>
+       <ion-list>
+           <ion-item *ngFor="let item of items">
+               {{item}}
+            </ion-item>
+       </ion-list>
 </ion-content>
+
+
