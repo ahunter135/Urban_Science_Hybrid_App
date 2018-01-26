@@ -5,10 +5,9 @@ import { Storage } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
 
 
-import { FormPage } from '../Form Page/form';
-import { ListPage } from '../list/list';
-
-
+import { FormPage } from '../form/form';
+import { FormDetailsPage } from '../formDetails/formDetails';
+import { AlertController } from 'ionic-angular';
 
 @Component({
     selector: 'page-home',
@@ -18,24 +17,81 @@ export class HomePage {
     public objects = [];
     public forms = [];
     public numForms;
-    public items = [];
-    public base64Image: string;
+    public base64Image;
+    public items;
+    constructor(public navCtrl: NavController, public http: HTTP, private storage: Storage, public camera: Camera, public alertCtrl: AlertController) {
 
-    constructor(public navCtrl: NavController, public http: HTTP, public camera: Camera, private storage: Storage) {
-        this.base64Image = "https://placehold.it/150x150";
     }
 
     ionViewDidLoad() {
+      this.numForms = 4;
+      this.storage.set('LoggedIn', false);
+      this.storage.get('LoggedIn').then((loggedIn) => {
+        if (loggedIn == false || loggedIn == undefined) {
+          let alertPrompt = this.alertCtrl.create({
+            title: 'Login',
+            inputs: [
+              {
+                name: 'username',
+                placeholder: 'Username'
+              },
+              {
+                name: 'password',
+                placeholder: 'Password',
+                type: 'password'
+              }
+            ],
+            buttons: [
+              {
+                text: 'Cancel',
+                role: 'cancel',
+                handler: data => {
+                  console.log('Cancel clicked');
+                }
+              },
+              {
+                text: 'Login',
+                handler: data => {
+                  let loginData = {
+                    username: data.username,
+                    password: data.password
+                  };
+                  let url = "https://hidden-depths-27519.herokuapp.com/";
 
-        //this.http.post('SOMEURL:8005/getForms')
+                  this.http.post(url + "login", loginData, {})
+                    .then(response => {
+                      if (response.data === "Success") {
+                        this.storage.set('LoggedIn', true);
+                        //getAllForms
+                        this.http.post(url + 'getAllForms', {}, {})
+                        .then(response => {
+                          alert(JSON.stringify(response));
+                        })
+                      }
+                    })
+                    .catch(err => alert(JSON.stringify(err)));
+                }
+              }
+            ]
+          });
+          alertPrompt.present();
+        } else {
+          let url = "https://hidden-depths-27519.herokuapp.com/";
+          this.http.post(url + 'getAllForms', {}, {})
+          .then(response => {
+            alert(JSON.stringify(response));
+          })
+        }
+      })
 
+/*
         //need to set the number of forms from server
         this.numForms = 5;
 
         //load the forms to array 'forms'
         for (var i = 0; i < this.numForms; i++) {
 
-            /*
+
             *grab from server here
             let form = {
                  pmaName: "",
@@ -82,7 +138,7 @@ export class HomePage {
                     collisionShop: ""
                   }
 
-            */
+
 
             let formTab = {
                 name: "Team 1001",
@@ -102,41 +158,19 @@ export class HomePage {
             }
             this.objects.push(item);
         }
-    }
-
-    openList() {
-
-        this.navCtrl.push(ListPage);
+        */
     }
 
 
     addForm() {
-
         this.navCtrl.push(FormPage);
-    }
-
-    takePicture() {
-        this.camera.getPicture({
-            quality: 75,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            sourceType: this.camera.PictureSourceType.CAMERA,
-            allowEdit: true,
-            encodingType: this.camera.EncodingType.JPEG,
-            targetWidth: 300,
-            targetHeight: 300,
-            saveToPhotoAlbum: false
-        }).then(imageData => {
-            this.base64Image = "data:image/jpeg;base64," + imageData;
-        }, error => {
-            console.log("ERROR -> " + JSON.stringify(error));
-        });
-    
     }
 
 
     showForm(showMe) {
         //showMe should be an ItemsDetailPage
-        this.navCtrl.push(showMe);//push the form clicked
+        this.storage.set('ClickedForm', JSON.stringify(showMe));
+        this.navCtrl.push(FormDetailsPage);//push the form clicked
 
     }
 
@@ -159,4 +193,22 @@ export class HomePage {
         }
     }
 
+    takePicture() {
+        this.camera.getPicture({
+            quality: 75,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            sourceType: this.camera.PictureSourceType.CAMERA,
+            allowEdit: true,
+            encodingType: this.camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            saveToPhotoAlbum: false
+        }).then(imageData => {
+            this.base64Image = "data:image/jpeg;base64," + imageData;
+        }, error => {
+            alert("Error -> " + JSON.stringify(error));
+            console.log("ERROR -> " + JSON.stringify(error));
+        });
+
+    }
 }

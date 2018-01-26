@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+  <ion-searchbar (ionInput)="getItems($event)"> </ion-searchbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of objects">
+      <ion-thumbnail item-start>
+        <img src="{{item.photo}}" />
+      </ion-thumbnail>
+      <h1>{{item.title}}</h1>
+      <p>{{item.subtitle}}</p>
+      <button ion-button clear item-right (click)="showForm(item)">
+        View
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="addForm()">
+      <ion-icon name="add">
+        </ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab right top>
+    <button ion-fab color="secondary" (click)="takePicture()">
+            <ion-icon name="camera">
+            </ion-icon>
+        </button>
+  </ion-fab>
+
+</ion-content>
