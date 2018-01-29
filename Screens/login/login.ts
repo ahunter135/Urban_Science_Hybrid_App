@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http';
+import { LoadingController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 
@@ -15,6 +16,9 @@ export class LoginPage {
     username: "",
     password: ""
   }
+  constructor(public loadingCtrl: LoadingController){
+
+  }
   constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage, public http: HTTP) {
   }
   ionViewDidLoad() {
@@ -22,6 +26,13 @@ export class LoginPage {
   }
 
   login() {
+    // This is a loadaing screen for user feedback
+    let loader = this.loadingCrtl.create({
+      content:"Signing IN. Please Wait...",
+      duration:3000
+    });
+    loader.present();
+
     this.loginData.username = this.loginData.username.toLowerCase();
     let url = "https://hidden-depths-27519.herokuapp.com/";
     this.http.setHeader('Content-Type', 'application/json');
