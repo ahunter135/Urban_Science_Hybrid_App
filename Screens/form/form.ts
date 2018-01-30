@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
-
+import { camera } from '@ionic-native';
 
 /**
  * Generated class for the FormPage page.
@@ -18,13 +18,40 @@ import { HomePage } from '../home/home';
 export class FormPage {
 
   public form = {
-    dealName: '',
-  	dealAddress1: '',
-  	dealAddress2: '',
-  	dealCity: '',
-  	dealState: '',
-  	dealzip: '',
-  	dealOther: ''
+    manBrand = '';
+	marketName = '';
+	franchiseBrand = '';
+	dealershipAddress1 = '';
+	dealershipAddress2 = '';
+	dealershipCity = '';
+	dealershipState = '';
+	dealershipZip = '';
+	dealershipExclusivity = '';
+	dealershipAppearance = '';
+	dealershipSignage = '';
+	dealershipCustomerParking = '';
+	dealershipAccessibility = '';
+	dealershipLocation = '';
+	dealershipProximity = '';
+	dealershipNeighborhood = '';
+	dealershipSize = '';
+	dealershipImage = '';
+	dealershipBuildingType = '';
+	dealershipCongestion = '';
+	dealershipDeliveryArea = '';
+	dealershipUsedCars = '';
+	dealershipAdditionStorage = '';
+	dealershipStructureSize = '';
+	dealershipOffSite = '';
+	dealershipPole = '';
+	dealershipMonument = '';
+	dealershipServiceReception = '';
+	dealershipLanes = '';
+	dealershipType = '';
+	dealershipStalls = '';
+	dealershipCarWash = '';
+	dealershipLubeLane = '';
+	dealershipCollision = '';
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

@@ -14,37 +14,616 @@
 </ion-header>
 <ion-content padding>
 	<ion-list>
-  	 <ion-item>
-  		<ion-label stacked>Dealership Name</ion-label>
-  		<ion-input type="text" placeholder="Name here" [(ngModel)]="form.dealName"></ion-input>
-  	 </ion-item>
-  	 <ion-item>
-  		<ion-label stacked>Address</ion-label>
-  		<ion-input type="text" placeholder="Address here" [(ngModel)]="form.dealAddress1"></ion-input>
-  	 </ion-item>
-  	 <ion-item>
-  		<ion-label stacked>Address Cont.</ion-label>
-  		<ion-input type="text" placeholder="PO, etc." [(ngModel)]="form.dealAddress2"></ion-input>
-  	 </ion-item>
-  	 <ion-item>
-  		<ion-label stacked>City</ion-label>
-  		<ion-input type="text" placeholder="City" [(ngModel)]="form.dealCity"></ion-input>
-  	 </ion-item>
-  	 <ion-item>
-  		<ion-label stacked>State</ion-label>
-  		<ion-input type="text" placeholder="State" [(ngModel)]="form.dealState"></ion-input>
-  	 </ion-item>
-  	 <ion-item>
-  		<ion-label stacked>Zip</ion-label>
-  		<ion-input type="number" placeholder="Zip Code" [(ngModel)]="form.dealZip"></ion-input>
-  	 </ion-item>
-  	 <ion-item>
-  		<ion-label stacked>Other?</ion-label>
-  		<ion-input type="text" placeholder="Potato" [(ngModel)]="form.dealOther"></ion-input>
-  	 </ion-item>
+   <ion-list-header>
+	<ion-title>Dealership Facility Overview</ion-title>
+  </ion-list-header>
+	<ion-item>
+		<ion-label stacked>Manufacturer Brand</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.manBrand" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>Market Name</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.marketName" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>Franchise Brand</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.franchiseBrand" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>Address 1</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.dealershipAddress1" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>Address 2</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.dealershipAddress2" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>City</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.dealershipCity" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>State</ion-label>
+		<ion-input type="text" placeholder="Type Here" [(ngModel)]="form.dealershipState" clearInput></ion-input>
+	</ion-item>
+	<ion-item>
+		<ion-label stacked>Zip Code</ion-label>
+		<ion-input type="number" placeholder="Type Here" [(ngModel)]="form.dealershipZip" clearInput></ion-input>
+	</ion-item>
+	</ion-list>
+	
+	<br><br>
+	
+	<ion-list radio-group [(ngModel)]="form.dealershipExclusivity">
+	<ion-list-header>
+		Exclusivity
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+  </ion-list>
+	
+  <ion-list radio-group [(ngModel)]="form.dealershipAppearance">
+	<ion-list-header>
+		Appearance
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Excellent</ion-label>
+		<ion-radio value="ex"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Very Good</ion-label>
+		<ion-radio value="vg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Good</ion-label>
+		<ion-radio value="g"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Fair</ion-label>
+		<ion-radio value="f"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poor</ion-label>
+		<ion-radio value="p"></ion-radio>
+	</ion-item>
+  </ion-list>
+  
+  <ion-list radio-group [(ngModel)]="form.dealershipSignage">
+	<ion-list-header>
+		Signage
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Excellent</ion-label>
+		<ion-radio value="ex"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Very Good</ion-label>
+		<ion-radio value="vg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Good</ion-label>
+		<ion-radio value="g"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Fair</ion-label>
+		<ion-radio value="f"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poor</ion-label>
+		<ion-radio value="p"></ion-radio>
+	</ion-item>
+  </ion-list>
+  
+  <ion-list radio-group [(ngModel)]="form.dealershipCustomerParking">
+	<ion-list-header>
+		Customer Parking
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Excellent</ion-label>
+		<ion-radio value="ex"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Very Good</ion-label>
+		<ion-radio value="vg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Good</ion-label>
+		<ion-radio value="g"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Fair</ion-label>
+		<ion-radio value="f"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poor</ion-label>
+		<ion-radio value="p"></ion-radio>
+	</ion-item>
+  </ion-list>
+  
+  <ion-list radio-group [(ngModel)]="form.dealershipAccessibility">
+	<ion-list-header>
+		Accessibility
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Excellent</ion-label>
+		<ion-radio value="ex"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Very Good</ion-label>
+		<ion-radio value="vg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Good</ion-label>
+		<ion-radio value="g"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Fair</ion-label>
+		<ion-radio value="f"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poor</ion-label>
+		<ion-radio value="p"></ion-radio>
+	</ion-item>
+  </ion-list>
+  
+  <ion-list radio-group [(ngModel)]="form.dealershipLocation">
+	<ion-list-header>
+		Location
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Excellent</ion-label>
+		<ion-radio value="ex"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Very Good</ion-label>
+		<ion-radio value="vg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Good</ion-label>
+		<ion-radio value="g"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Fair</ion-label>
+		<ion-radio value="f"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poor</ion-label>
+		<ion-radio value="p"></ion-radio>
+	</ion-item>
+  </ion-list>
+  
+  
+  
+  <ion-list radio-group [(ngModel)]="form.dealershipProximity">
+	<ion-list-header>
+		Proximity to Competition
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Excellent</ion-label>
+		<ion-radio value="ex"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Very Good</ion-label>
+		<ion-radio value="vg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Good</ion-label>
+		<ion-radio value="g"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Fair</ion-label>
+		<ion-radio value="f"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Poor</ion-label>
+		<ion-radio value="p"></ion-radio>
+	</ion-item>  
+	</ion-list>
+	
+	<ion-list radio-group [(ngModel)]="form.dealershipNeighborhood">
+	<ion-list-header>
+		Surrounding Neighborhood
+	</ion-list-header>
+	<ion-item>
+		<ion-label>New</ion-label>
+		<ion-radio value="new"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Old</ion-label>
+		<ion-radio value="old"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Growing</ion-label>
+		<ion-radio value="growing"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Declining</ion-label>
+		<ion-radio value="declining"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipSize">
+	<ion-list-header>
+		Overall Size
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Small</ion-label>
+		<ion-radio value="sm"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Medium</ion-label>
+		<ion-radio value="md"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Large</ion-label>
+		<ion-radio value="lrg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Extra Large</ion-label>
+		<ion-radio value="xlg"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipImage">
+	<ion-list-header>
+		Meets Image(NREDI/IREDI)
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Old</ion-label>
+		<ion-radio value="old"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>New</ion-label>
+		<ion-radio value="new"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Decaying</ion-label>
+		<ion-radio value="decay"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipBuildingType">
+	<ion-list-header>
+		Building Type
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Block</ion-label>
+		<ion-radio value="block"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Stucco</ion-label>
+		<ion-radio value="stucco"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Butler</ion-label>
+		<ion-radio value="butler"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Clad</ion-label>
+		<ion-radio value="clad"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Other</ion-label>
+		<ion-radio value="other"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipCongestion">
+	<ion-list-header>
+		Congestion
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Open</ion-label>
+		<ion-radio value="open"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Full</ion-label>
+		<ion-radio value="full"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Tight</ion-label>
+		<ion-radio value="tight"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Jammed</ion-label>
+		<ion-radio value="jammed"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipDeliveryArea">
+	<ion-list-header>
+		New Car Delivery Area
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Enclosed</ion-label>
+		<ion-radio value="enclosed"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Canopy</ion-label>
+		<ion-radio value="canopy"></ion-radio>
+	</ion-item>
+		<ion-item>
+		<ion-label>Outside</ion-label>
+		<ion-radio value="outside"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipUsedCars">
+	<ion-list-header>
+		Used Cars/Separate Building
+	</ion-list-header>
+	<ion-item>
+		<ion-label>CPO</ion-label>
+		<ion-radio value="cpo"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>PO Only</ion-label>
+		<ion-radio value="po"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipAdditionStorage">
+	<ion-list-header>
+		Additional Vehicle Storage
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Structure</ion-label>
+		<ion-radio value="structure"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Paved Lot</ion-label>
+		<ion-radio value="paved"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Gravel Lot</ion-label>
+		<ion-radio value="gravel"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipStructureSize">
+	<ion-list-header>
+		Structure Size
+	</ion-list-header>
+	<ion-item>
+		<ion-label>New</ion-label>
+		<ion-radio value="new"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Old</ion-label>
+		<ion-radio value="old"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Growing</ion-label>
+		<ion-radio value="growing"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Declining</ion-label>
+		<ion-radio value="declining"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipOffSite">
+	<ion-list-header>
+		Off-site Areas
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Service</ion-label>
+		<ion-radio value="service"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Parts</ion-label>
+		<ion-radio value="parts"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>New Car Storage</ion-label>
+		<ion-radio value="ncs"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Used</ion-label>
+		<ion-radio value="used"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipPole">
+	<ion-list-header>
+		Pylon/Pole
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Small</ion-label>
+		<ion-radio value="sm"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Medium</ion-label>
+		<ion-radio value="med"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Large</ion-label>
+		<ion-radio value="lrg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Extra Large</ion-label>
+		<ion-radio value="xlg"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipMonument">
+	<ion-list-header>
+		Monument
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Small</ion-label>
+		<ion-radio value="sm"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Medium</ion-label>
+		<ion-radio value="med"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Large</ion-label>
+		<ion-radio value="lrg"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Extra Large</ion-label>
+		<ion-radio value="xlg"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipServiceReception">
+	<ion-list-header>
+		Service Reception
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Enclosed</ion-label>
+		<ion-radio value="enc"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Canopy</ion-label>
+		<ion-radio value="canopy"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Outside</ion-label>
+		<ion-radio value="outside"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipLanes">
+	<ion-list-header>
+		Service Reception Area (Lanes)
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Wide</ion-label>
+		<ion-radio value="wide"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Deep</ion-label>
+		<ion-radio value="deep"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipType">
+	<ion-list-header>
+		Service Shop Type
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Cnt Aisle</ion-label>
+		<ion-radio value="cAisle"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>2X Aisle</ion-label>
+		<ion-radio value="xAisle"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Outside</ion-label>
+		<ion-radio value="outside"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipStalls">
+	<ion-list-header>
+		Service Shop #Stalls/Clean
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipCarWash">
+	<ion-list-header>
+		Car Wash
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Auto</ion-label>
+		<ion-radio value="auto"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Stall</ion-label>
+		<ion-radio value="stall"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Outside</ion-label>
+		<ion-radio value="outside"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Attached</ion-label>
+		<ion-radio value="attached"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>Free-Stand</ion-label>
+		<ion-radio value="fs"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipLubeLane">
+	<ion-list-header>
+		Express Lube Lane/#
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
+	</ion-list>
+		
+	<ion-list radio-group [(ngModel)]="form.dealershipCollision">
+	<ion-list-header>
+		Collision Shop/#Stalls
+	</ion-list-header>
+	<ion-item>
+		<ion-label>Yes</ion-label>
+		<ion-radio value="yes"></ion-radio>
+	</ion-item>
+	<ion-item>
+		<ion-label>No</ion-label>
+		<ion-radio value="no"></ion-radio>
+	</ion-item>
 	</ion-list>
 =======
-  <ion-list radio-group [(ngModel)]="autoManufacturer">
+  <ion-list radio-group [(ngModel)]="form.autoManufacturer">
 <ion-list-header>
 	Form
 </ion-list-header>
