@@ -24,8 +24,9 @@ export class LoginPage {
   ionViewDidLoad() {
     this.storage.set('LoggedIn', false);
   }
-  
+
   login() {
+    // This is a loading screen for user feedback
     let loader = this.loadingCrtl.create({
       content:"Signing IN. Please Wait...",
       duration:3000

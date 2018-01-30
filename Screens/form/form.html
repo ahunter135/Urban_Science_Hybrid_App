@@ -10,6 +10,7 @@
     <ion-title>Form Submission</ion-title>
   </ion-navbar>
 
+<<<<<<< Updated upstream:Screens/form/form.html
 </ion-header>
 <ion-content padding>
 	<ion-list>
@@ -42,8 +43,19 @@
   		<ion-input type="text" placeholder="Potato" [(ngModel)]="form.dealOther"></ion-input>
   	 </ion-item>
 	</ion-list>
+=======
+  <ion-list radio-group [(ngModel)]="autoManufacturer">
+<ion-list-header>
+	Form
+</ion-list-header>
+>>>>>>> Stashed changes:Screens/Form Page/form.html
 
+<ion-item>
+	<ion-label>Test</ion-label>
+	<ion-radio value="Thistest></ion-radio>
+</ion-item>
+
+</ion-list>
 	<button ion-button block (click)="submit()">Submit Form</button>
-  <button ion-button block (click)="cancel()">Cancel</button>
-
-</ion-content>
+	<button ion-button block (click)="cancel()">Cancel</button>
+</ion-header>
