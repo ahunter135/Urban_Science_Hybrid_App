@@ -1,12 +1,46 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Form Details</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+    <span *ngIf="form != undefined; else content">
+      <p>{{form.form.manBrand}}</p>
+      <p>{{form.form.marketName}}</p>
+      <p>{{form.form.franchiseBrand}}</p>
+      <p>{{form.form.dealershipAddress1}}</p>
+      <p>{{form.form.dealershipAddress2}}</p>
+      <p>{{form.form.dealershipCity}}</p>
+      <p>{{form.form.dealershipState}}</p>
+      <p>{{form.form.dealershipZip}}</p>
+      <p>{{form.form.dealershipExclusivity}}</p>
+      <p>{{form.form.dealershipAppearance}}</p>
+      <p>{{form.form.dealershipSignage}}</p>
+      <p>{{form.form.dealershipCustomerParking}}</p>
+      <p>{{form.form.dealershipAccessibility}}</p>
+      <p>{{form.form.dealershipLocation}}</p>
+      <p>{{form.form.dealershipProximity}}</p>
+      <p>{{form.form.dealershipNeighborhood}}</p>
+      <p>{{form.form.dealershipSize}}</p>
+      <p>{{form.form.dealershipImage}}</p>
+      <p>{{form.form.dealershipBuildingType}}</p>
+      <p>{{form.form.dealershipCongestion}}</p>
+      <p>{{form.form.dealershipDeliveryArea}}</p>
+      <p>{{form.form.dealershipAdditionStorage}}</p>
+      <p>{{form.form.dealershipStructureSize}}</p>
+      <p>{{form.form.dealershipOffSite}}</p>
+      <p>{{form.form.dealershipPole}}</p>
+      <p>{{form.form.dealershipMonument}}</p>
+      <p>{{form.form.dealershipServiceReception}}</p>
+      <p>{{form.form.dealershipLanes}}</p>
+      <p>{{form.form.dealershipType}}</p>
+      <p>{{form.form.dealershipStalls}}</p>
+      <p>{{form.form.dealershipCarWash}}</p>
+      <p>{{form.form.dealershipLubeLane}}</p>
+      <p>{{form.form.dealershipCollision}}</p>
+    </span>
+    <ng-template #content>
+      <p>None</p>
+    </ng-template>
 </ion-content>

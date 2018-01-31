@@ -1,26 +1,31 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Login Page
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content class="login-content" no-bounce padding>
+    <div class="logo-row">
+      <ion-col>
+        <img src="./assets/imgs/banner.jpg" />
+      </ion-col>
+    </div>
+    <div class="login-box">
+      <form (ngSubmit)="login()" #registerForm="ngForm">
+        <ion-row>
+          <ion-col>
+            <ion-list inset >
 
-<ion-content padding>
-  <form (ngSubmit)="login()">
-    <ion-list>
+              <ion-item>
+                <ion-input type="text" autocapitalize="off" placeholder="Username" name="companyURL" [(ngModel)]="loginData.username" required></ion-input>
+              </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Username</ion-label>
-        <ion-input type="text" name="username" autocapitalize="off" [(ngModel)]="loginData.username"></ion-input>
-      </ion-item>
+              <ion-item>
+                <ion-input type="password" autocapitalize="off" placeholder="Password" name="password" [(ngModel)]="loginData.password" required></ion-input>
+              </ion-item>
 
-      <ion-item>
-        <ion-label stacked>Password</ion-label>
-        <ion-input type="password" name="password" autocapitalize="off" [(ngModel)]="loginData.password"></ion-input>
-      </ion-item>
-
-    </ion-list>
-    <button ion-button block type="submit">Login</button>
-  </form>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="signup-col">
+            <button ion-button class="submit-btn" full type="submit">Login</button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
 </ion-content>

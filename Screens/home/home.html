@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <ion-icon style="color: #8abd57;" name="menu"></ion-icon>
       </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
@@ -10,29 +10,21 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let item of objects">
+    <ion-item *ngFor="let item of formsArray">
       <ion-thumbnail item-start>
-        <img src="{{item.photo}}" />
+        <img src="{{item.form.formImage}}" />
       </ion-thumbnail>
-      <h1>{{item.title}}</h1>
-      <p>{{item.subtitle}}</p>
-      <button ion-button clear item-right (click)="showForm(item)">
+      <h1>{{item.form.manBrand}}</h1>
+      <p>{{item.form.dealershipCity}}, {{item.form.dealershipState}}</p>
+      <button ion-button clear item-right (click)="viewForm(item)">
         View
       </button>
     </ion-item>
   </ion-list>
-
   <ion-fab right bottom>
-    <button ion-fab color="secondary"><ion-icon name="arrow-up"></ion-icon></button>
-    <ion-fab-list side="top">
-      <button ion-fab color="secondary" (click)="addForm()">
+      <button ion-fab style="background-color: #8abd57;" (click)="addForm()">
         <ion-icon name="add">
         </ion-icon>
       </button>
-      <button ion-fab color="secondary" (click)="takePicture()">
-          <ion-icon name="camera">
-        </ion-icon>
-        </button>
-    </ion-fab-list>
   </ion-fab>
 </ion-content>
